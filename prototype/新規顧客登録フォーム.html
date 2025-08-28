@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規顧客登録 - BUDDICA CRM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 768px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: #007AFF;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0056CC;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .form-content {
+            padding: 32px;
+        }
+
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .required {
+            color: #ff3b30;
+            font-size: 12px;
+            background: #ff3b30;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .form-label .required-star {
+            color: #ff3b30;
+            margin-left: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e5e5e7;
+            border-radius: 12px;
+            font-size: 18px;
+            background: #fbfbfd;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #007AFF;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+        }
+
+        .form-input.error {
+            border-color: #ff3b30;
+            background: #fff5f5;
+        }
+
+        .error-message {
+            color: #ff3b30;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .option-btn {
+            padding: 12px 20px;
+            border: 2px solid #e5e5e7;
+            border-radius: 24px;
+            background: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover {
+            border-color: #007AFF;
+        }
+
+        .option-btn.active {
+            background: #007AFF;
+            color: white;
+            border-color: #007AFF;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .quick-action-btn {
+            padding: 16px;
+            border: 2px solid #e5e5e7;
+            border-radius: 12px;
+            background: white;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .quick-action-btn:hover {
+            border-color: #007AFF;
+            background: #f0f8ff;
+        }
+
+        .main-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #e5e5e7;
+        }
+
+        .btn-large {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-success {
+            background: #34C759;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #2DB94B;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: white;
+            color: #007AFF;
+            border: 2px solid #007AFF;
+        }
+
+        .btn-outline:hover {
+            background: #f0f8ff;
+        }
+
+        .slider-container {
+            margin: 16px 0;
+        }
+
+        .price-slider {
+            width: 100%;
+            height: 8px;
+            background: #e5e5e7;
+            border-radius: 4px;
+            appearance: none;
+        }
+
+        .price-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #007AFF;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .price-display {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #007AFF;
+            margin-top: 8px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .header-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-actions {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 新規顧客登録</h1>
+            <div class="header-buttons">
+                <button class="btn btn-primary" onclick="saveCustomer()">完了</button>
+                <button class="btn btn-secondary" onclick="cancelForm()">キャンセル</button>
+            </div>
+        </div>
+
+        <form class="form-content" id="customerForm">
+            <!-- 基本情報セクション -->
+            <div class="section">
+                <div class="section-title">
+                    基本情報 <span class="required">必須</span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        お名前 <span class="required-star">*</span>
+                    </label>
+                    <input type="text" class="form-input" id="customerName" 
+                           placeholder="山田　太郎" required>
+                    <div class="error-message" id="nameError"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">
+                            電話番号 <span class="required-star">*</span>
+                        </label>
+                        <input type="tel" class="form-input" id="customerPhone" 
+                               placeholder="090-1234-5678" required>
+                        <div class="error-message" id="phoneError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス</label>
+                        <input type="email" class="form-input" id="customerEmail" 
+                               placeholder="yamada@example.com">
+                        <div class="error-message" id="emailError"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 来店情報セクション -->
+            <div class="section">
+                <div class="section-title">来店情報</div>
+                
+                <div class="form-group">
+                    <label class="form-label">来店目的</label>
+                    <div class="button-group">
+                        <button type="button" class="option-btn" data-value="見学">見学</button>
+                        <button type="button" class="option-btn" data-value="購入検討">購入検討</button>
+                        <button type="button" class="option-btn" data-value="情報収集">情報収集</button>
+                        <button type="button" class="option-btn" data-value="その他">その他</button>
+                    </div>
+                    <input type="hidden" id="visitPurpose">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">同伴者</label>
+                    <div class="button-group">
+                        <button type="button" class="option-btn" data-value="お一人">お一人</button>
+                        <button type="button" class="option-btn" data-value="ご夫婦">ご夫婦</button>
+                        <button type="button" class="option-btn" data-value="ご家族">ご家族</button>
+                        <button type="button" class="option-btn" data-value="友人同伴">友人同伴</button>
+                    </div>
+                    <input type="hidden" id="companion">
+                </div>
+            </div>
+
+            <!-- 簡単なニーズ聞き取り -->
+            <div class="section">
+                <div class="section-title">簡単なニーズ聞き取り</div>
+                
+                <div class="form-group">
+                    <label class="form-label">ご希望車種</label>
+                    <input type="text" class="form-input" id="preferredVehicle" 
+                           placeholder="プリウス、フィット など" list="vehicleSuggestions">
+                    <datalist id="vehicleSuggestions">
+                        <option value="プリウス">
+                        <option value="プリウスα">
+                        <option value="フィット">
+                        <option value="フィット ハイブリッド">
+                        <option value="アクア">
+                        <option value="ヴィッツ">
+                        <option value="カローラ">
+                        <option value="シエンタ">
+                        <option value="ヴォクシー">
+                        <option value="セレナ">
+                    </datalist>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">ご予算</label>
+                    <div class="slider-container">
+                        <input type="range" class="price-slider" id="budgetRange" 
+                               min="50" max="500" value="200" step="10">
+                        <div class="price-display" id="budgetDisplay">200万円</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">主な使用用途</label>
+                    <div class="button-group">
+                        <button type="button" class="option-btn" data-value="通勤用">通勤用</button>
+                        <button type="button" class="option-btn" data-value="買い物用">買い物用</button>
+                        <button type="button" class="option-btn" data-value="レジャー用">レジャー用</button>
+                        <button type="button" class="option-btn" data-value="営業用">営業用</button>
+                        <button type="button" class="option-btn" data-value="ファミリー用">ファミリー用</button>
+                    </div>
+                    <input type="hidden" id="usageType">
+                </div>
+            </div>
+
+            <!-- クイックアクション -->
+            <div class="quick-actions">
+                <button type="button" class="quick-action-btn" onclick="captureIDCard()">
+                    📸 免許証撮影で自動入力
+                </button>
+                <button type="button" class="quick-action-btn" onclick="voiceInput()">
+                    🎤 音声で名前入力
+                </button>
+            </div>
+
+            <!-- メインアクション -->
+            <div class="main-actions">
+                <button type="button" class="btn-large btn-success" onclick="startCustomerService()">
+                    今すぐ接客開始
+                </button>
+                <button type="button" class="btn-large btn-outline" onclick="saveForLater()">
+                    詳細は後で入力
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // 選択ボタンのイベント処理
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 同じグループの他のボタンの選択を解除
+                const group = this.parentElement;
+                group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+                
+                // このボタンを選択状態にする
+                this.classList.add('active');
+                
+                // 隠しフィールドに値を設定
+                const hiddenInput = group.nextElementSibling;
+                if (hiddenInput && hiddenInput.type === 'hidden') {
+                    hiddenInput.value = this.dataset.value;
+                }
+            });
+        });
+
+        // 予算スライダーの処理
+        const budgetSlider = document.getElementById('budgetRange');
+        const budgetDisplay = document.getElementById('budgetDisplay');
+        
+        budgetSlider.addEventListener('input', function() {
+            budgetDisplay.textContent = this.value + '万円';
+        });
+
+        // 電話番号の自動フォーマット
+        document.getElementById('customerPhone').addEventListener('input', function() {
+            let value = this.value.replace(/[^\d]/g, '');
+            if (value.length >= 7) {
+                value = value.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3');
+            } else if (value.length >= 4) {
+                value = value.replace(/(\d{3})(\d{0,4})/, '$1-$2');
+            }
+            this.value = value;
+        });
+
+        // バリデーション
+        function validateForm() {
+            let isValid = true;
+            const name = document.getElementById('customerName');
+            const phone = document.getElementById('customerPhone');
+            const email = document.getElementById('customerEmail');
+
+            // 名前のバリデーション
+            if (!name.value.trim()) {
+                showError(name, 'nameError', 'お名前は必須です');
+                isValid = false;
+            } else {
+                clearError(name, 'nameError');
+            }
+
+            // 電話番号のバリデーション
+            const phonePattern = /^\d{3}-\d{4}-\d{4}$/;
+            if (!phone.value.trim()) {
+                showError(phone, 'phoneError', '電話番号は必須です');
+                isValid = false;
+            } else if (!phonePattern.test(phone.value)) {
+                showError(phone, 'phoneError', '正しい電話番号を入力してください');
+                isValid = false;
+            } else {
+                clearError(phone, 'phoneError');
+            }
+
+            // メールのバリデーション（任意項目だが、入力されている場合はチェック）
+            if (email.value.trim() && !email.value.includes('@')) {
+                showError(email, 'emailError', '正しいメール形式で入力してください');
+                isValid = false;
+            } else {
+                clearError(email, 'emailError');
+            }
+
+            return isValid;
+        }
+
+        function showError(input, errorId, message) {
+            input.classList.add('error');
+            document.getElementById(errorId).textContent = message;
+        }
+
+        function clearError(input, errorId) {
+            input.classList.remove('error');
+            document.getElementById(errorId).textContent = '';
+        }
+
+        // 機能実装
+        function saveCustomer() {
+            if (validateForm()) {
+                alert('顧客情報を保存しました！');
+                // 実際にはここでAPIコール
+            }
+        }
+
+        function startCustomerService() {
+            if (validateForm()) {
+                alert('接客を開始します！\n顧客詳細画面に移動します。');
+                // 実際にはここで顧客詳細画面に遷移
+            }
+        }
+
+        function saveForLater() {
+            if (validateForm()) {
+                alert('基本情報を保存しました。\n詳細情報は後で入力してください。');
+                // 実際にはここでタスクリストに追加
+            }
+        }
+
+        function captureIDCard() {
+            alert('カメラを起動して免許証を撮影します。\n（実装予定）');
+            // 実際にはここでカメラ起動 + OCR処理
+        }
+
+        function voiceInput() {
+            if ('webkitSpeechRecognition' in window) {
+                const recognition = new webkitSpeechRecognition();
+                recognition.lang = 'ja-JP';
+                recognition.onresult = function(event) {
+                    document.getElementById('customerName').value = event.results[0][0].transcript;
+                };
+                recognition.start();
+            } else {
+                alert('音声認識に対応していません');
+            }
+        }
+
+        function cancelForm() {
+            if (confirm('入力内容が失われますが、よろしいですか？')) {
+                window.history.back();
+            }
+        }
+
+        // 重複チェック（デモ用）
+        document.getElementById('customerPhone').addEventListener('blur', function() {
+            const phone = this.value;
+            if (phone === '090-1234-5678') {
+                if (confirm('この電話番号は既に登録されています。\n既存顧客「山田太郎」様の詳細画面を開きますか？')) {
+                    alert('既存顧客画面に移動します');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
