@@ -12,32 +12,34 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f7;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", Roboto, sans-serif;
+            background: #fafafa;
+            color: #333333;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 768px;
+            max-width: 800px;
             margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            min-height: 100vh;
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 24px;
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 24px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .header h1 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
+            color: #333333;
+            letter-spacing: -0.2px;
         }
 
         .header-buttons {
@@ -46,32 +48,35 @@
         }
 
         .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+            letter-spacing: 0.1px;
         }
 
         .btn-primary {
-            background: #007AFF;
-            color: white;
+            background: #333333;
+            color: #ffffff;
+            border: 1px solid #333333;
         }
 
         .btn-primary:hover {
-            background: #0056CC;
+            background: #222222;
+            border-color: #222222;
         }
 
         .btn-secondary {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
+            background: #ffffff;
+            color: #666666;
+            border: 1px solid #e0e0e0;
         }
 
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.3);
+            background: #f5f5f5;
+            border-color: #cccccc;
         }
 
         .form-content {
@@ -79,27 +84,29 @@
         }
 
         .section {
-            margin-bottom: 32px;
+            margin-bottom: 40px;
         }
 
         .section-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 16px;
+            color: #333333;
+            margin-bottom: 20px;
+            letter-spacing: -0.1px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .required {
-            color: #ff3b30;
-            font-size: 12px;
-            background: #ff3b30;
-            color: white;
+        .required-badge {
+            background: #f5f5f5;
+            color: #666666;
             padding: 2px 6px;
             border-radius: 4px;
+            font-size: 11px;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
         }
 
         .form-group {
@@ -108,165 +115,43 @@
 
         .form-label {
             display: block;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 500;
-            color: #1d1d1f;
+            color: #333333;
             margin-bottom: 8px;
+            letter-spacing: -0.05px;
         }
 
-        .form-label .required-star {
-            color: #ff3b30;
+        .required-star {
+            color: #666666;
             margin-left: 4px;
         }
 
         .form-input {
             width: 100%;
-            padding: 16px;
-            border: 2px solid #e5e5e7;
-            border-radius: 12px;
-            font-size: 18px;
-            background: #fbfbfd;
-            transition: all 0.2s;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 16px;
+            background: #ffffff;
+            transition: all 0.2s ease;
+            font-family: inherit;
         }
 
         .form-input:focus {
             outline: none;
-            border-color: #007AFF;
-            background: white;
-            box-shadow: 0 0 0 4px rgba(0, 122, 255, 0.1);
+            border-color: #333333;
+            box-shadow: 0 0 0 1px #333333;
         }
 
         .form-input.error {
-            border-color: #ff3b30;
-            background: #fff5f5;
+            border-color: #d32f2f;
         }
 
         .error-message {
-            color: #ff3b30;
-            font-size: 14px;
+            color: #d32f2f;
+            font-size: 13px;
             margin-top: 4px;
-        }
-
-        .button-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .option-btn {
-            padding: 12px 20px;
-            border: 2px solid #e5e5e7;
-            border-radius: 24px;
-            background: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .option-btn:hover {
-            border-color: #007AFF;
-        }
-
-        .option-btn.active {
-            background: #007AFF;
-            color: white;
-            border-color: #007AFF;
-        }
-
-        .quick-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .quick-action-btn {
-            padding: 16px;
-            border: 2px solid #e5e5e7;
-            border-radius: 12px;
-            background: white;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.2s;
-        }
-
-        .quick-action-btn:hover {
-            border-color: #007AFF;
-            background: #f0f8ff;
-        }
-
-        .main-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 32px;
-            padding-top: 24px;
-            border-top: 1px solid #e5e5e7;
-        }
-
-        .btn-large {
-            padding: 20px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-success {
-            background: #34C759;
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #2DB94B;
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            background: white;
-            color: #007AFF;
-            border: 2px solid #007AFF;
-        }
-
-        .btn-outline:hover {
-            background: #f0f8ff;
-        }
-
-        .slider-container {
-            margin: 16px 0;
-        }
-
-        .price-slider {
-            width: 100%;
-            height: 8px;
-            background: #e5e5e7;
-            border-radius: 4px;
-            appearance: none;
-        }
-
-        .price-slider::-webkit-slider-thumb {
-            appearance: none;
-            width: 24px;
-            height: 24px;
-            background: #007AFF;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .price-display {
-            text-align: center;
-            font-size: 20px;
-            font-weight: 600;
-            color: #007AFF;
-            margin-top: 8px;
         }
 
         .form-row {
@@ -275,30 +160,210 @@
             gap: 16px;
         }
 
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .option-btn {
+            padding: 8px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background: #ffffff;
+            font-size: 14px;
+            color: #666666;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .option-btn:hover {
+            border-color: #333333;
+            color: #333333;
+        }
+
+        .option-btn.active {
+            background: #333333;
+            color: #ffffff;
+            border-color: #333333;
+        }
+
+        .slider-container {
+            margin: 16px 0;
+        }
+
+        .price-slider {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .price-slider::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #333333;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .price-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #333333;
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+
+        .price-display {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+            margin-top: 8px;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 32px 0;
+        }
+
+        .quick-action-btn {
+            padding: 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            color: #666666;
+        }
+
+        .quick-action-btn:hover {
+            border-color: #333333;
+            color: #333333;
+        }
+
+        .main-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .btn-large {
+            padding: 16px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: -0.1px;
+        }
+
+        .btn-success {
+            background: #333333;
+            color: #ffffff;
+            border: 1px solid #333333;
+        }
+
+        .btn-success:hover {
+            background: #222222;
+            border-color: #222222;
+        }
+
+        .btn-outline {
+            background: #ffffff;
+            color: #333333;
+            border: 1px solid #e0e0e0;
+        }
+
+        .btn-outline:hover {
+            background: #f5f5f5;
+            border-color: #cccccc;
+        }
+
+        .section-divider {
+            height: 1px;
+            background: #f0f0f0;
+            margin: 32px 0;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .header-buttons {
-                flex-direction: column;
-                gap: 8px;
+            .container {
+                margin: 0;
+                border: none;
+                border-radius: 0;
             }
-            
+
+            .header {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+            }
+
+            .header-buttons {
+                justify-content: center;
+            }
+
+            .form-content {
+                padding: 24px 20px;
+            }
+
             .form-row {
                 grid-template-columns: 1fr;
             }
-            
+
             .main-actions {
                 grid-template-columns: 1fr;
             }
-            
+
             .quick-actions {
                 grid-template-columns: 1fr;
             }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .option-btn {
+                text-align: center;
+            }
+        }
+
+        /* Focus states for accessibility */
+        .btn:focus,
+        .option-btn:focus,
+        .quick-action-btn:focus {
+            outline: 2px solid #333333;
+            outline-offset: 2px;
+        }
+
+        .form-input:focus {
+            outline: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🏠 新規顧客登録</h1>
+            <h1>新規顧客登録</h1>
             <div class="header-buttons">
                 <button class="btn btn-primary" onclick="saveCustomer()">完了</button>
                 <button class="btn btn-secondary" onclick="cancelForm()">キャンセル</button>
@@ -309,7 +374,8 @@
             <!-- 基本情報セクション -->
             <div class="section">
                 <div class="section-title">
-                    基本情報 <span class="required">必須</span>
+                    基本情報 
+                    <span class="required-badge">必須</span>
                 </div>
                 
                 <div class="form-group">
@@ -340,6 +406,8 @@
                 </div>
             </div>
 
+            <div class="section-divider"></div>
+
             <!-- 来店情報セクション -->
             <div class="section">
                 <div class="section-title">来店情報</div>
@@ -367,9 +435,11 @@
                 </div>
             </div>
 
+            <div class="section-divider"></div>
+
             <!-- 簡単なニーズ聞き取り -->
             <div class="section">
-                <div class="section-title">簡単なニーズ聞き取り</div>
+                <div class="section-title">ニーズ聞き取り</div>
                 
                 <div class="form-group">
                     <label class="form-label">ご希望車種</label>
@@ -414,7 +484,7 @@
             <!-- クイックアクション -->
             <div class="quick-actions">
                 <button type="button" class="quick-action-btn" onclick="captureIDCard()">
-                    📸 免許証撮影で自動入力
+                    📷 免許証撮影で自動入力
                 </button>
                 <button type="button" class="quick-action-btn" onclick="voiceInput()">
                     🎤 音声で名前入力
@@ -498,7 +568,7 @@
                 clearError(phone, 'phoneError');
             }
 
-            // メールのバリデーション（任意項目だが、入力されている場合はチェック）
+            // メールのバリデーション
             if (email.value.trim() && !email.value.includes('@')) {
                 showError(email, 'emailError', '正しいメール形式で入力してください');
                 isValid = false;
@@ -523,27 +593,23 @@
         function saveCustomer() {
             if (validateForm()) {
                 alert('顧客情報を保存しました！');
-                // 実際にはここでAPIコール
             }
         }
 
         function startCustomerService() {
             if (validateForm()) {
                 alert('接客を開始します！\n顧客詳細画面に移動します。');
-                // 実際にはここで顧客詳細画面に遷移
             }
         }
 
         function saveForLater() {
             if (validateForm()) {
                 alert('基本情報を保存しました。\n詳細情報は後で入力してください。');
-                // 実際にはここでタスクリストに追加
             }
         }
 
         function captureIDCard() {
-            alert('カメラを起動して免許証を撮影します。\n（実装予定）');
-            // 実際にはここでカメラ起動 + OCR処理
+            alert('カメラを起動して免許証を撮影します。');
         }
 
         function voiceInput() {
