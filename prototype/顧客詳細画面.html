@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顧客詳細 - 山田太郎様 - BUDDICA CRM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", Roboto, sans-serif;
+            background: #fafafa;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #666666;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .back-btn:hover {
+            background: #f5f5f5;
+        }
+
+        .customer-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .customer-contact {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .tab-navigation {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0 32px;
+        }
+
+        .tab-list {
+            display: flex;
+            gap: 32px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 16px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #666666;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            color: #333333;
+            border-bottom-color: #333333;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px 280px;
+            gap: 20px;
+            padding: 24px 32px;
+            min-height: 600px;
+        }
+
+        .main-content {
+            background: #ffffff;
+        }
+
+        .sidebar-right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333333;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-size: 13px;
+            color: #666666;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 14px;
+            color: #333333;
+            font-weight: 500;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-new {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .score-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: conic-gradient(#333333 0deg, #333333 306deg, #e0e0e0 306deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333333;
+            font-weight: 600;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .score-circle::before {
+            content: '';
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+
+        .score-circle span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #333333;
+        }
+
+        .action-btn:hover {
+            background: #f5f5f5;
+            border-color: #cccccc;
+        }
+
+        .action-btn.primary {
+            background: #333333;
+            color: #ffffff;
+            border-color: #333333;
+        }
+
+        .action-btn.primary:hover {
+            background: #222222;
+            border-color: #222222;
+        }
+
+        .timeline {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-time {
+            font-size: 12px;
+            color: #666666;
+            min-width: 80px;
+            margin-top: 2px;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-title {
+            font-size: 13px;
+            font-weight: 500;
+            color: #333333;
+            margin-bottom: 2px;
+        }
+
+        .timeline-desc {
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .timeline-channel {
+            display: inline-block;
+            padding: 2px 6px;
+            background: #f0f0f0;
+            border-radius: 3px;
+            font-size: 11px;
+            color: #666666;
+            margin-right: 8px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #333333;
+            width: 80%;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .vehicle-match {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .vehicle-match:last-child {
+            border-bottom: none;
+        }
+
+        .vehicle-image {
+            width: 40px;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .vehicle-info {
+            flex: 1;
+        }
+
+        .vehicle-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: #333333;
+        }
+
+        .vehicle-match-score {
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .deal-stage {
+            padding: 16px 0;
+        }
+
+        .stage-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 16px 0;
+        }
+
+        .stage-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .stage-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666666;
+        }
+
+        .stage-circle.active {
+            background: #333333;
+            color: #ffffff;
+        }
+
+        .stage-circle.completed {
+            background: #4caf50;
+            color: #ffffff;
+        }
+
+        .stage-label {
+            font-size: 11px;
+            color: #666666;
+            text-align: center;
+        }
+
+        .stage-connector {
+            height: 2px;
+            background: #e0e0e0;
+            flex: 1;
+            margin: 0 8px;
+        }
+
+        .stage-connector.completed {
+            background: #4caf50;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr 260px;
+                gap: 16px;
+                padding: 20px 24px;
+            }
+
+            .sidebar-right {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border: none;
+            }
+
+            .header {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+
+            .customer-contact {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .tab-navigation {
+                padding: 0 20px;
+            }
+
+            .tab-list {
+                gap: 20px;
+                overflow-x: auto;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                padding: 16px 20px;
+            }
+
+            .sidebar-right {
+                order: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <button class="back-btn" onclick="goBack()">←</button>
+                <div>
+                    <div class="customer-title">山田太郎 様</div>
+                    <div class="customer-contact">
+                        <span>📞 090-1234-5678</span>
+                        <span>✉ yamada@example.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-navigation">
+            <div class="tab-list">
+                <button class="tab-btn active" data-tab="basic">基本情報</button>
+                <button class="tab-btn" data-tab="deal">商談状況</button>
+                <button class="tab-btn" data-tab="history">履歴</button>
+                <button class="tab-btn" data-tab="analysis">分析</button>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="card">
+                    <div class="card-header">
+                        💬 コミュニケーション履歴
+                    </div>
+                    <div class="card-content">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-time">8/28 14:30</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">
+                                        <span class="timeline-channel">来店</span>
+                                        初回来店・登録完了
+                                    </div>
+                                    <div class="timeline-desc">新規顧客として来店、基本情報を登録</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-time">8/28 15:00</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">
+                                        <span class="timeline-channel">試乗</span>
+                                        プリウス試乗実施
+                                    </div>
+                                    <div class="timeline-desc">約15分間の試乗、操作性について質問</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-time">8/28 17:00</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">
+                                        <span class="timeline-channel">メール</span>
+                                        見積書送付
+                                    </div>
+                                    <div class="timeline-desc">プリウス 2020年式の見積書をメール送付</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-time">8/29 09:00</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">
+                                        <span class="timeline-channel">LINE</span>
+                                        フォローメッセージ送信
+                                    </div>
+                                    <div class="timeline-desc">試乗のお礼と検討状況の確認メッセージ</div>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-time">8/29 14:00</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">
+                                        <span class="timeline-channel">電話</span>
+                                        追加質問対応
+                                    </div>
+                                    <div class="timeline-desc">燃費と保険について質問、約10分間の通話</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-right">
+                <div class="card">
+                    <div class="card-header">
+                        🎯 クイックアクション
+                    </div>
+                    <div class="card-content">
+                        <button class="action-btn primary" onclick="startNeedsHearing()">
+                            🎤 ニーズヒアリング
+                        </button>
+                        <button class="action-btn" onclick="searchInventory()">
+                            🔍 在庫検索
+                        </button>
+                        <button class="action-btn" onclick="createQuote()">
+                            📋 見積作成
+                        </button>
+                        <button class="action-btn" onclick="scheduleTestDrive()">
+                            🚗 試乗予約
+                        </button>
+                        <button class="action-btn" onclick="setFollowUp()">
+                            ⏰ フォロー設定
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        📊 AI分析
+                    </div>
+                    <div class="card-content">
+                        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                            <div class="score-circle">
+                                <span>85%</span>
+                            </div>
+                            <div>
+                                <div class="info-label">購買意欲スコア</div>
+                                <div style="font-size: 12px; color: #666666; margin-top: 4px;">
+                                    試乗実施済み、具体的な質問多数
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-row">
+                            <span class="info-label">成約確率</span>
+                            <span class="info-value">67%</span>
+                        </div>
+                        
+                        <div style="margin: 16px 0;">
+                            <div class="info-label">推奨車種</div>
+                            <div class="vehicle-match">
+                                <div class="vehicle-image">🚗</div>
+                                <div class="vehicle-info">
+                                    <div class="vehicle-name">プリウス</div>
+                                    <div class="vehicle-match-score">マッチ度: 92%</div>
+                                </div>
+                            </div>
+                            <div class="vehicle-match">
+                                <div class="vehicle-image">🚙</div>
+                                <div class="vehicle-info">
+                                    <div class="vehicle-name">アクア</div>
+                                    <div class="vehicle-match-score">マッチ度: 78%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+                            <div class="info-label">類似顧客パターン</div>
+                            <div style="font-size: 12px; color: #666666; margin-top: 4px;">
+                                平均検討期間: 14日<br>
+                                初回試乗後の成約率: 73%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    📋 基本情報
+                </div>
+                <div class="card-content">
+                    <div class="info-row">
+                        <span class="info-label">初回来店</span>
+                        <span class="info-value">8/28</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">担当者</span>
+                        <span class="info-value">田中</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">ステータス</span>
+                        <span class="status-badge status-new">新規</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">希望車種</span>
+                        <span class="info-value">プリウス</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">予算</span>
+                        <span class="info-value">200万円</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">用途</span>
+                        <span class="info-value">通勤用</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">同伴</span>
+                        <span class="info-value">ご夫婦</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    📈 商談進捗
+                </div>
+                <div class="card-content">
+                    <div class="info-row">
+                        <span class="info-label">ステージ</span>
+                        <span class="info-value">初回接触</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">開始日</span>
+                        <span class="info-value">8/28</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">次回予定</span>
+                        <span class="info-value">8/30</span>
+                    </div>
+                    
+                    <div style="margin: 16px 0;">
+                        <div class="info-label">進捗</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div style="font-size: 12px; color: #666666; text-align: right;">80%</div>
+                    </div>
+
+                    <div class="stage-list">
+                        <div class="stage-item">
+                            <div class="stage-circle completed">✓</div>
+                            <div class="stage-label">初回<br>接触</div>
+                        </div>
+                        <div class="stage-connector completed"></div>
+                        <div class="stage-item">
+                            <div class="stage-circle completed">✓</div>
+                            <div class="stage-label">ニーズ<br>確認</div>
+                        </div>
+                        <div class="stage-connector completed"></div>
+                        <div class="stage-item">
+                            <div class="stage-circle active">3</div>
+                            <div class="stage-label">提案<br>検討</div>
+                        </div>
+                        <div class="stage-connector"></div>
+                        <div class="stage-item">
+                            <div class="stage-circle">4</div>
+                            <div class="stage-label">契約<br>締結</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // タブ切り替え機能
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // すべてのタブから active を削除
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                // クリックされたタブに active を追加
+                this.classList.add('active');
+                
+                // タブの内容を切り替える処理（将来的に実装）
+                const tabType = this.dataset.tab;
+                console.log('Tab switched to:', tabType);
+            });
+        });
+
+        // アクション関数群
+        function goBack() {
+            if (confirm('顧客詳細画面を閉じますか？')) {
+                window.history.back();
+            }
+        }
+
+        function startNeedsHearing() {
+            if (confirm('ニーズヒアリング画面に移動しますか？')) {
+                alert('ニーズヒアリング画面に移動します');
+                // location.href = 'ニーズヒアリング画面.html';
+            }
+        }
+
+        function searchInventory() {
+            alert('在庫検索画面に移動します\n\n顧客の希望に合う車両を検索します：\n・車種: プリウス\n・予算: 200万円\n・用途: 通勤用');
+        }
+
+        function createQuote() {
+            alert('見積作成画面に移動します\n\n以下の条件で見積を作成：\n・希望車種: プリウス\n・予算上限: 200万円');
+        }
+
+        function scheduleTestDrive() {
+            alert('試乗予約画面に移動します\n\n既に試乗済みですが、他車種の試乗予約も可能です');
+        }
+
+        function setFollowUp() {
+            const nextContact = prompt('次回連絡予定日を入力してください (例: 2024-08-30)', '2024-08-30');
+            if (nextContact) {
+                alert(`フォローアップを ${nextContact} に設定しました`);
+            }
+        }
+
+        // リアルタイム更新のデモ（WebSocket接続をシミュレート）
+        function simulateRealtimeUpdate() {
+            // 実際の実装では WebSocket を使用
+            console.log('WebSocket connection established for real-time updates');
+            
+            // デモ：5秒後に新しい通信履歴を追加
+            setTimeout(() => {
+                const timeline = document.querySelector('.timeline');
+                const newItem = document.createElement('div');
+                newItem.className = 'timeline-item';
+                newItem.style.background = '#f8f9fa';
+                newItem.innerHTML = `
+                    <div class="timeline-time">Now</div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">
+                            <span class="timeline-channel">システム</span>
+                            リアルタイム更新デモ
+                        </div>
+                        <div class="timeline-desc">WebSocket経由で新しい情報が追加されました</div>
+                    </div>
+                `;
+                timeline.insertBefore(newItem, timeline.firstChild);
+                
+                setTimeout(() => {
+                    newItem.style.background = 'transparent';
+                }, 2000);
+            }, 5000);
+        }
+
+        // ページ読み込み時にリアルタイム更新を開始
+        document.addEventListener('DOMContentLoaded', () => {
+            simulateRealtimeUpdate();
+        });
+    </script>
+</body>
+</html>
