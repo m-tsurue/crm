@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUDDICA CRM - カーライフアドバイザー向けCRMシステム</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            padding: 30px 20px;
+            border-radius: 16px;
+            background: #f8f9ff;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .demo-section {
+            margin-top: 50px;
+            padding: 30px;
+            background: #f0f8ff;
+            border-radius: 16px;
+        }
+
+        .demo-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .demo-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .demo-btn {
+            padding: 15px 30px;
+            background: #007AFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .demo-btn:hover {
+            background: #0056CC;
+            transform: translateY(-2px);
+        }
+
+        .demo-btn.secondary {
+            background: white;
+            color: #007AFF;
+            border: 2px solid #007AFF;
+        }
+
+        .demo-btn.secondary:hover {
+            background: #f0f8ff;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #34C759;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .github-link {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .github-btn {
+            padding: 12px 24px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .github-btn:hover {
+            background: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .logo {
+                font-size: 36px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+            
+            .demo-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">BUDDICA CRM</div>
+        <div class="subtitle">カーライフアドバイザー向けCRMシステム</div>
+        
+        <div class="status-badge">🚀 プロトタイプ開発中</div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <div class="feature-title">顧客管理</div>
+                <div class="feature-desc">来店から成約まで一元管理。チーム間の情報共有もスムーズ。</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚗</div>
+                <div class="feature-title">在庫連携</div>
+                <div class="feature-desc">複数店舗の在庫を横断検索。他社比較で優位性をアピール。</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <div class="feature-title">iPad最適化</div>
+                <div class="feature-desc">展示場でもデスクでも使いやすいタッチインターフェース。</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <div class="feature-title">電子契約</div>
+                <div class="feature-desc">ペーパーレスで契約完了。控えを即座にメール送信。</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <div class="feature-title">LINE連携</div>
+                <div class="div">お客様とのやり取りを一元管理。自動フォローアップ機能。</div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-title">分析・レポート</div>
+                <div class="feature-desc">営業活動を可視化。成約率向上のための洞察を提供。</div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <div class="demo-title">🎯 プロトタイプデモ</div>
+            <div class="demo-buttons">
+                <a href="./prototype/新規顧客登録フォーム.html" class="demo-btn">
+                    📝 新規顧客登録フォーム
+                </a>
+                <a href="./docs/" class="demo-btn secondary">
+                    📚 設計ドキュメント
+                </a>
+            </div>
+        </div>
+        
+        <div class="github-link">
+            <a href="https://github.com/m-tsurue/crm" class="github-btn" target="_blank">
+                📂 GitHubで詳細を見る
+            </a>
+        </div>
+    </div>
+</body>
+</html>
