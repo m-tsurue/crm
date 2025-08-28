@@ -12,238 +12,398 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", Roboto, sans-serif;
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
         }
 
-        .container {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 800px;
-            width: 100%;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 60px 20px;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
         }
 
         .logo {
-            font-size: 48px;
-            font-weight: 700;
-            color: #667eea;
-            margin-bottom: 20px;
+            font-size: 32px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
         }
 
-        .subtitle {
-            font-size: 20px;
-            color: #666;
-            margin-bottom: 40px;
+        .tagline {
+            font-size: 16px;
+            color: #666666;
+            font-weight: 400;
+            margin-bottom: 24px;
         }
 
-        .features {
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #f5f5f5;
+            color: #666666;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 48px;
+            max-width: 600px;
+        }
+
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 64px;
         }
 
         .feature-card {
-            padding: 30px 20px;
-            border-radius: 16px;
-            background: #f8f9ff;
-            border: 2px solid transparent;
-            transition: all 0.3s;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 32px 24px;
+            transition: all 0.2s ease;
         }
 
         .feature-card:hover {
-            border-color: #667eea;
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
+            border-color: #cccccc;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .feature-title {
             font-size: 18px;
             font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
+            color: #333333;
+            margin-bottom: 12px;
+            letter-spacing: -0.2px;
         }
 
-        .feature-desc {
-            color: #666;
+        .feature-description {
+            font-size: 14px;
+            color: #666666;
             line-height: 1.5;
         }
 
         .demo-section {
-            margin-top: 50px;
-            padding: 30px;
-            background: #f0f8ff;
-            border-radius: 16px;
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 48px 32px;
+            text-align: center;
         }
 
         .demo-title {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 600;
-            color: #333;
-            margin-bottom: 20px;
+            color: #333333;
+            margin-bottom: 16px;
+            letter-spacing: -0.2px;
         }
 
-        .demo-buttons {
+        .demo-description {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 32px;
+        }
+
+        .button-group {
             display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            gap: 16px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .demo-btn {
-            padding: 15px 30px;
-            background: #007AFF;
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .demo-btn:hover {
-            background: #0056CC;
-            transform: translateY(-2px);
-        }
-
-        .demo-btn.secondary {
-            background: white;
-            color: #007AFF;
-            border: 2px solid #007AFF;
-        }
-
-        .demo-btn.secondary:hover {
-            background: #f0f8ff;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            background: #34C759;
-            color: white;
-            border-radius: 20px;
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
             font-size: 14px;
             font-weight: 500;
-            margin-bottom: 30px;
-        }
-
-        .github-link {
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
-        }
-
-        .github-btn {
-            padding: 12px 24px;
-            background: #333;
-            color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            letter-spacing: 0.2px;
         }
 
-        .github-btn:hover {
-            background: #555;
+        .btn-primary {
+            background: #333333;
+            color: #ffffff;
+            border: 1px solid #333333;
+        }
+
+        .btn-primary:hover {
+            background: #222222;
+            border-color: #222222;
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #333333;
+            border: 1px solid #e0e0e0;
+        }
+
+        .btn-secondary:hover {
+            background: #f5f5f5;
+            border-color: #cccccc;
+        }
+
+        .specs-section {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 48px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .spec-icon {
+            width: 24px;
+            height: 24px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .spec-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 4px;
+            letter-spacing: -0.1px;
+        }
+
+        .spec-content p {
+            font-size: 14px;
+            color: #666666;
+            line-height: 1.4;
+        }
+
+        .footer {
+            background: #fafafa;
+            border-top: 1px solid #e0e0e0;
+            padding: 32px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #666666;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .footer-link:hover {
+            color: #333333;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #999999;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 30px 20px;
+            .header {
+                padding: 40px 20px;
             }
             
             .logo {
-                font-size: 36px;
+                font-size: 28px;
             }
             
-            .features {
+            .container {
+                padding: 60px 20px;
+            }
+            
+            .section {
+                margin-bottom: 60px;
+            }
+            
+            .features-grid {
                 grid-template-columns: 1fr;
             }
             
-            .demo-buttons {
+            .button-group {
                 flex-direction: column;
                 align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <div class="header-content">
+            <h1 class="logo">BUDDICA CRM</h1>
+            <p class="tagline">カーライフアドバイザー向けCRMシステム</p>
+            <span class="status">開発中</span>
+        </div>
+    </div>
+
     <div class="container">
-        <div class="logo">BUDDICA CRM</div>
-        <div class="subtitle">カーライフアドバイザー向けCRMシステム</div>
-        
-        <div class="status-badge">🚀 プロトタイプ開発中</div>
-        
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <div class="feature-title">顧客管理</div>
-                <div class="feature-desc">来店から成約まで一元管理。チーム間の情報共有もスムーズ。</div>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">🚗</div>
-                <div class="feature-title">在庫連携</div>
-                <div class="feature-desc">複数店舗の在庫を横断検索。他社比較で優位性をアピール。</div>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📱</div>
-                <div class="feature-title">iPad最適化</div>
-                <div class="feature-desc">展示場でもデスクでも使いやすいタッチインターフェース。</div>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📋</div>
-                <div class="feature-title">電子契約</div>
-                <div class="feature-desc">ペーパーレスで契約完了。控えを即座にメール送信。</div>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">💬</div>
-                <div class="feature-title">LINE連携</div>
-                <div class="div">お客様とのやり取りを一元管理。自動フォローアップ機能。</div>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <div class="feature-title">分析・レポート</div>
-                <div class="feature-desc">営業活動を可視化。成約率向上のための洞察を提供。</div>
+        <div class="section">
+            <h2 class="section-title">システム概要</h2>
+            <p class="section-description">
+                iPadを活用して、展示場でもデスクでも効率的な接客を可能にするCRMシステム。
+                成約率の向上、接客応答時間の短縮、諸データの電子保存を実現します。
+            </p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3 class="feature-title">顧客情報管理</h3>
+                    <p class="feature-description">
+                        来店から成約まで一元管理。チーム間での情報共有もスムーズに行えます。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">在庫検索・比較</h3>
+                    <p class="feature-description">
+                        複数店舗の在庫を横断検索。他社比較で自社の優位性を効果的にアピール。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">見積もり・契約</h3>
+                    <p class="feature-description">
+                        その場で見積もり作成から電子契約まで。ペーパーレス化を実現。
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3 class="feature-title">外部連携</h3>
+                    <p class="feature-description">
+                        カーセンサー・Goonetからの問い合わせ自動取り込み。LINE連携対応。
+                    </p>
+                </div>
             </div>
         </div>
-        
+
         <div class="demo-section">
-            <div class="demo-title">🎯 プロトタイプデモ</div>
-            <div class="demo-buttons">
-                <a href="./prototype/新規顧客登録フォーム.html" class="demo-btn">
-                    📝 新規顧客登録フォーム
+            <h2 class="demo-title">プロトタイプデモ</h2>
+            <p class="demo-description">
+                実際の画面操作を体験できるプロトタイプをご用意しています。
+            </p>
+            <div class="button-group">
+                <a href="./prototype/新規顧客登録フォーム.html" class="btn btn-primary">
+                    新規顧客登録デモ
                 </a>
-                <a href="./docs/" class="demo-btn secondary">
-                    📚 設計ドキュメント
+                <a href="./docs/" class="btn btn-secondary">
+                    設計ドキュメント
                 </a>
             </div>
         </div>
-        
-        <div class="github-link">
-            <a href="https://github.com/m-tsurue/crm" class="github-btn" target="_blank">
-                📂 GitHubで詳細を見る
-            </a>
+
+        <div class="section specs-section">
+            <h2 class="section-title">技術仕様</h2>
+            
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-icon">📱</div>
+                    <div class="spec-content">
+                        <h3>iPad最適化</h3>
+                        <p>タッチ操作に最適化されたインターフェース。展示場での利用を想定。</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <div class="spec-icon">🔄</div>
+                    <div class="spec-content">
+                        <h3>EXTREME連携</h3>
+                        <p>既存の在庫・販売管理システムとの完全連携。データの二重管理を回避。</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <div class="spec-icon">📊</div>
+                    <div class="spec-content">
+                        <h3>BigQuery活用</h3>
+                        <p>高度な分析とレポート機能。経営判断のためのデータ活用。</p>
+                    </div>
+                </div>
+
+                <div class="spec-item">
+                    <div class="spec-icon">🛡️</div>
+                    <div class="spec-content">
+                        <h3>セキュア設計</h3>
+                        <p>個人情報保護に配慮したセキュリティ設計。認証・認可機能完備。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/m-tsurue/crm" class="footer-link">GitHub</a>
+                <a href="./docs/" class="footer-link">Documentation</a>
+                <a href="https://buddica.direct/" class="footer-link">BUDDICA</a>
+            </div>
+            <p class="footer-text">© 2024 BUDDICA CRM Project</p>
         </div>
     </div>
 </body>

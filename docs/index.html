@@ -12,101 +12,118 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", Roboto, sans-serif;
+            background: #ffffff;
+            color: #333333;
             line-height: 1.6;
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 20px;
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 48px 20px;
             text-align: center;
         }
 
         .header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
         }
 
         .header p {
-            font-size: 18px;
-            opacity: 0.9;
+            font-size: 16px;
+            color: #666666;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 48px 20px;
         }
 
         .doc-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
         }
 
         .doc-card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.2s ease;
         }
 
         .doc-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            border-color: #cccccc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
-        .doc-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
+        .doc-category {
+            font-size: 12px;
+            color: #999999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
         .doc-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            color: #333;
-            margin-bottom: 10px;
+            color: #333333;
+            margin-bottom: 8px;
+            letter-spacing: -0.2px;
         }
 
         .doc-desc {
-            color: #666;
-            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 16px;
+            line-height: 1.5;
         }
 
         .doc-link {
             display: inline-block;
-            padding: 10px 20px;
-            background: #007AFF;
-            color: white;
+            padding: 8px 16px;
+            background: #ffffff;
+            color: #333333;
             text-decoration: none;
-            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 13px;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
 
         .doc-link:hover {
-            background: #0056CC;
+            background: #f5f5f5;
+            border-color: #cccccc;
         }
 
-        .back-link {
+        .back-section {
             text-align: center;
-            margin: 40px 0;
+            padding: 32px 0;
+            border-top: 1px solid #e0e0e0;
         }
 
         .back-btn {
             padding: 12px 24px;
-            background: #666;
-            color: white;
+            background: #333333;
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 4px;
+            font-size: 14px;
             font-weight: 500;
+            transition: all 0.2s ease;
         }
 
         .back-btn:hover {
-            background: #555;
+            background: #222222;
         }
 
         @media (max-width: 768px) {
@@ -118,99 +135,99 @@
 </head>
 <body>
     <div class="header">
-        <h1>📚 設計ドキュメント</h1>
+        <h1>設計ドキュメント</h1>
         <p>BUDDICA CRMの企画・設計に関する全ドキュメント</p>
     </div>
 
     <div class="container">
         <div class="doc-grid">
             <div class="doc-card">
-                <div class="doc-icon">📋</div>
+                <div class="doc-category">Business</div>
                 <div class="doc-title">ビジネス要件定義書</div>
                 <div class="doc-desc">解決したい課題、期待される効果、利用シーンを整理</div>
                 <a href="./ビジネス要件定義書.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">👤</div>
+                <div class="doc-category">User Research</div>
                 <div class="doc-title">ユーザーストーリー</div>
                 <div class="doc-desc">営業担当者、マネージャー、経営層の視点でのストーリー</div>
                 <a href="./ユーザーストーリー.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">🏗️</div>
+                <div class="doc-category">Architecture</div>
                 <div class="doc-title">技術アーキテクチャ</div>
                 <div class="doc-desc">システム構成、セキュリティ、パフォーマンス設計</div>
                 <a href="./技術アーキテクチャ.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">🔧</div>
+                <div class="doc-category">Requirements</div>
                 <div class="doc-title">機能要件確定版</div>
                 <div class="doc-desc">必須機能の整理、Phase別実装計画</div>
                 <a href="./機能要件確定版.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">🎨</div>
+                <div class="doc-category">Design</div>
                 <div class="doc-title">画面一覧</div>
                 <div class="doc-desc">想定される全画面（約48画面）の一覧と優先度</div>
                 <a href="./画面一覧.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">📱</div>
+                <div class="doc-category">UI Design</div>
                 <div class="doc-title">新規顧客登録画面設計</div>
                 <div class="doc-desc">初回来店客の情報を素早く記録する画面設計</div>
                 <a href="./新規顧客登録画面設計.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">🚗</div>
+                <div class="doc-category">Product</div>
                 <div class="doc-title">カーライフアドバイザー向けCRM要件</div>
-                <div class="div">iPadを使った接客支援システムの詳細要件</div>
+                <div class="doc-desc">iPadを使った接客支援システムの詳細要件</div>
                 <a href="./カーライフアドバイザー向けCRM要件.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">🔄</div>
+                <div class="doc-category">Integration</div>
                 <div class="doc-title">EXTREME連携を踏まえた機能整理</div>
                 <div class="doc-desc">既存システムとの連携方針と役割分担</div>
                 <a href="./EXTREME連携を踏まえた機能整理.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">💾</div>
+                <div class="doc-category">Data</div>
                 <div class="doc-title">BigQuery活用アーキテクチャ</div>
                 <div class="doc-desc">データ分析基盤との統合設計</div>
                 <a href="./BigQuery活用アーキテクチャ.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">📧</div>
+                <div class="doc-category">Integration</div>
                 <div class="doc-title">外部問い合わせ自動取り込み機能</div>
                 <div class="doc-desc">カーセンサー・Goonetからの問い合わせ自動化</div>
                 <a href="./外部問い合わせ自動取り込み機能.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">💬</div>
+                <div class="doc-category">Communication</div>
                 <div class="doc-title">コミュニケーション戦略</div>
                 <div class="doc-desc">LINE、メール、電話の使い分けと最適化</div>
                 <a href="./コミュニケーション戦略再検討.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
 
             <div class="doc-card">
-                <div class="doc-icon">📖</div>
+                <div class="doc-category">Scenario</div>
                 <div class="doc-title">CRM活用物語</div>
                 <div class="doc-desc">実際の利用シーンを物語形式で描いたストーリー</div>
                 <a href="./CRM活用物語.md" class="doc-link" target="_blank">詳細を見る</a>
             </div>
         </div>
 
-        <div class="back-link">
-            <a href="../" class="back-btn">🏠 トップページに戻る</a>
+        <div class="back-section">
+            <a href="../" class="back-btn">トップページに戻る</a>
         </div>
     </div>
 </body>
